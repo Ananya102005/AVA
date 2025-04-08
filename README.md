@@ -1,6 +1,7 @@
 # AVA: Agent-based Virtual Stylist + Upcycler
 
-![Innovation Lab Badge](https://fetch.ai/images/innovation-lab-badge.svg)
+[![Innovation Lab Badge](https://fetch.ai/images/innovation-lab-badge.svg)](https://www.fetch.ai/innovation-lab)
+
 
 ### Personal Styling and Sustainable Fashion Powered by Fetch.ai uAgents
 
