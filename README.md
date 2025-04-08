@@ -18,7 +18,6 @@
 - [Agent Details](#agent-details)
 - [Agentverse Integration](#agentverse-integration)
 - [Innovation Lab Badge Eligibility](#innovation-lab-badge-eligibility)
-- [Testing Instructions](#testing-instructions)
 - [Running the Application](#running-the-application)
 - [Future Improvements](#future-improvements)
 - [License](#license)
@@ -71,7 +70,7 @@ These agents communicate using Fetch.ai's `uAgents` protocol to deliver real-tim
 | **Agents**        | Fetch.ai uAgents                      |
 | **AI/ML**         | Gemini AI (Google Generative AI SDK) |
 | **Backend**       | Python, FastAPI                       |
-| **Frontend**      | HTML, CSS                             |
+| **Frontend**      | HTML, CSS ,JavaScript                            |
 | **Database**      | In-memory |
 
 
@@ -127,26 +126,6 @@ To integrate with Agentverse:
 
 ---
 
-## Testing Instructions
-
-1. **Install Dependencies**
-   ```
-   pip install -r requirements.txt
-   ```
-
-2. **Run Tests**
-   ```
-   pytest
-   ```
-
-3. **Tested Components**
-   - Agent-to-agent communication
-   - API endpoints for analysis and recommendation
-   - Body shape classifier logic
-   - Upcycling suggestion logic
-   - Gemini AI integration (mocked/test key)
-
-You may add `test_*.py` files to expand your test coverage further.
 
 ---
 
