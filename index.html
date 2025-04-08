@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVA - Your Personal Style Assistant</title>
+    <!-- Remove old Poppins font -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+    <!-- Add new Chic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">AVA Style Assistant</h1>
+            <!-- Optional: Add navigation if needed later -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Start / Initial Choice -->
+        <section id="startSection" class="container start-section active"> <!-- Start visible by default -->
+            <h2>Welcome</h2>
+            <p>Discover your style profile or explore sustainable fashion ideas.</p>
+            <div class="choice-cards">
+                <div class="choice-card" data-choice="bodyAnalysis">
+                    <!-- Optional Icon -->
+                    <h3>Body & Style Analysis</h3>
+                    <p>Complete a comprehensive analysis to discover your body shape, face shape, color season, and receive personalized style recommendations.</p>
+                    <button class="button">Start Analysis</button>
+                </div>
+                <div class="choice-card" data-choice="upcycler">
+                    <!-- Optional Icon -->
+                    <h3>Upcycler Ideas</h3>
+                    <p>Get creative suggestions for repurposing your old clothing items.</p>
+                    <button class="button">Get Ideas</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Body Shape Analysis -->
+        <section id="bodyAnalysisSection" class="container hidden"> <!-- Hidden by default -->
+             <div class="analysis-form-container">
+                <h2>Body Shape Analysis</h2>
+                <form id="bodyShapeForm">
+                    <!-- Progress Bar -->
+                    <div class="question-header">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="bodyProgressBar" style="width: 25%;"></div> <!-- Start at Q1/4 -->
+                        </div>
+                        <p class="progress-text">Question <span id="currentBodyQuestion">1</span> of 4</p>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div id="bodyQuestion1" class="question-section active">
+                        <h4 class="question-text">1. Where does your weight tend to distribute most noticeably?</h4>
+                        <div class="options-group mcq-options">
+                            <div class="mcq-option">
+                                <input type="radio" id="weightUpper" name="weight" value="upper_body" required>
+                                <label for="weightUpper">
+                                    <span class="option-title">Upper Body</span>
+                                    <span class="option-description">Shoulders, bust, or midsection might feel fuller compared to hips/thighs.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="weightLower" name="weight" value="lower_body">
+                                <label for="weightLower">
+                                    <span class="option-title">Lower Body</span>
+                                    <span class="option-description">Hips, thighs, or buttocks feel fuller compared to the upper body.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="weightMiddle" name="weight" value="middle">
+                                <label for="weightMiddle">
+                                    <span class="option-title">Middle / Waist</span>
+                                     <span class="option-description">Weight tends to settle more around the abdominal area.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="weightEven" name="weight" value="evenly_distributed">
+                                <label for="weightEven">
+                                    <span class="option-title">Evenly Distributed</span>
+                                    <span class="option-description">Weight seems balanced across the upper and lower body.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div id="bodyQuestion2" class="question-section">
+                        <h4 class="question-text">2. How would you describe your shoulders compared to your hips?</h4>
+                         <div class="options-group mcq-options">
+                            <div class="mcq-option">
+                                <input type="radio" id="shouldersWider" name="shoulders" value="wider" required>
+                                <label for="shouldersWider">
+                                    <span class="option-title">Shoulders Wider Than Hips</span>
+                                    <span class="option-description">Your shoulder measurement appears broader than your hip measurement.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="shouldersNarrower" name="shoulders" value="narrower">
+                                <label for="shouldersNarrower">
+                                    <span class="option-title">Shoulders Narrower Than Hips</span>
+                                     <span class="option-description">Your hip measurement appears broader than your shoulder measurement.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="shouldersBalanced" name="shoulders" value="balanced">
+                                <label for="shouldersBalanced">
+                                    <span class="option-title">Shoulders and Hips Balanced</span>
+                                     <span class="option-description">Your shoulder and hip measurements appear roughly the same width.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div id="bodyQuestion3" class="question-section">
+                        <h4 class="question-text">3. How defined is your waist compared to your shoulders and hips?</h4>
+                        <div class="options-group mcq-options">
+                            <div class="mcq-option">
+                                <input type="radio" id="waistDefined" name="waist" value="defined" required>
+                                <label for="waistDefined">
+                                    <span class="option-title">Clearly Defined</span>
+                                    <span class="option-description">Your waist is significantly smaller and curves inwards noticeably.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="waistSlightly" name="waist" value="slightly_defined">
+                                <label for="waistSlightly">
+                                    <span class="option-title">Slightly Defined</span>
+                                    <span class="option-description">There's some indentation, but it's not dramatically smaller.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="waistUndefined" name="waist" value="undefined">
+                                <label for="waistUndefined">
+                                    <span class="option-title">Undefined / Straight</span>
+                                    <span class="option-description">Your waist measurement is similar to or wider than your hips/shoulders.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div id="bodyQuestion4" class="question-section">
+                        <h4 class="question-text">4. Where do you typically have the most trouble finding clothes that fit well?</h4>
+                         <div class="options-group mcq-options">
+                            <div class="mcq-option">
+                                <input type="radio" id="fitShoulder" name="fit" value="shoulder" required>
+                                <label for="fitShoulder">
+                                    <span class="option-title">Shoulders / Bust</span>
+                                    <span class="option-description">Tops or jackets are often too tight or too loose here.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="fitWaist" name="fit" value="waist">
+                                <label for="fitWaist">
+                                    <span class="option-title">Waist</span>
+                                    <span class="option-description">Pants or skirts gap at the waist or are too tight.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="fitHips" name="fit" value="hips">
+                                <label for="fitHips">
+                                    <span class="option-title">Hips / Thighs</span>
+                                    <span class="option-description">Pants or skirts are often too tight or too loose here.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="fitNone" name="fit" value="none">
+                                <label for="fitNone">
+                                    <span class="option-title">No Specific Area / Varies</span>
+                                     <span class="option-description">Fitting issues aren't consistently in one area, or clothes generally fit okay.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="question-nav">
+                        <button type="button" id="bodyPrevBtn" class="button button-secondary prev-btn hidden">Previous</button>
+                        <button type="button" id="bodyNextBtn" class="button next-btn">Next</button>
+                        <button type="button" id="viewBodyResultsBtn" class="button hidden">View Results</button> <!-- Changed type to button, handled by JS -->
+                    </div>
+                </form>
+                <!-- Area to display results if needed -->
+                 <div id="bodyAnalysisResultArea" class="hidden" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--secondary-accent);">
+                    <h3>Your Body Analysis Result:</h3>
+                    <p id="bodyTypeDisplay"></p>
+                    <p id="bodyTypeDescription"></p>
+                    <!-- Button to proceed or return -->
+                    <button type="button" id="bodyAnalysisDoneBtn" class="button">Return to Start</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2.5: Face Shape Analysis -->
+        <section id="faceAnalysisSection" class="container hidden"> <!-- Added -->
+            <div class="analysis-form-container">
+                <h2>Face Shape Analysis</h2>
+                <form id="faceShapeForm">
+                    <!-- Progress Bar -->
+                    <div class="question-header">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="faceProgressBar" style="width: 25%;"></div>
+                        </div>
+                        <p class="progress-text">Question <span id="currentFaceQuestion">1</span> of 4</p>
+                    </div>
+
+                    <!-- Question 1: Face Length -->
+                    <div id="faceQuestion1" class="question-section active">
+                        <h4 class="question-text">1. How would you describe the length of your face?</h4>
+                        <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="faceLengthLong" name="faceLength" value="long" required>
+                                <label for="faceLengthLong">
+                                    <span class="option-title">Long</span>
+                                    <span class="option-description">My face seems noticeably longer than it is wide.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="faceLengthAverage" name="faceLength" value="average">
+                                <label for="faceLengthAverage">
+                                    <span class="option-title">Average / Balanced</span>
+                                    <span class="option-description">My face length and width seem relatively proportionate.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="faceLengthShort" name="faceLength" value="short">
+                                <label for="faceLengthShort">
+                                    <span class="option-title">Short / Wide</span>
+                                    <span class="option-description">My face seems about as wide as it is long, or wider.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Jawline Shape -->
+                     <div id="faceQuestion2" class="question-section">
+                        <h4 class="question-text">2. What is the shape of your jawline?</h4>
+                        <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="jawlineAngular" name="jawline" value="angular" required>
+                                <label for="jawlineAngular">
+                                    <span class="option-title">Angular / Square</span>
+                                    <span class="option-description">My jaw has sharp, defined angles.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="jawlineRounded" name="jawline" value="rounded">
+                                <label for="jawlineRounded">
+                                    <span class="option-title">Rounded</span>
+                                    <span class="option-description">My jaw curves gently without strong angles.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="jawlinePointed" name="jawline" value="pointed">
+                                <label for="jawlinePointed">
+                                    <span class="option-title">Pointed / Tapered</span>
+                                    <span class="option-description">My jawline narrows towards my chin.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Forehead Width -->
+                    <div id="faceQuestion3" class="question-section">
+                        <h4 class="question-text">3. How does your forehead width compare to your jawline?</h4>
+                         <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="foreheadWider" name="foreheadWidth" value="wider" required>
+                                <label for="foreheadWider">
+                                    <span class="option-title">Wider Forehead</span>
+                                    <span class="option-description">My forehead seems wider than my jawline.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="foreheadSimilar" name="foreheadWidth" value="similar">
+                                <label for="foreheadSimilar">
+                                    <span class="option-title">Similar Width</span>
+                                    <span class="option-description">My forehead and jawline seem roughly the same width.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="foreheadNarrower" name="foreheadWidth" value="narrower">
+                                <label for="foreheadNarrower">
+                                    <span class="option-title">Narrower Forehead</span>
+                                    <span class="option-description">My forehead seems narrower than my jawline.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Cheekbone Width -->
+                     <div id="faceQuestion4" class="question-section">
+                        <h4 class="question-text">4. What is the widest part of your face?</h4>
+                         <div class="options-group mcq-options">
+                            <div class="mcq-option">
+                                <input type="radio" id="cheekbonesWidest" name="cheekbones" value="cheekbones" required>
+                                <label for="cheekbonesWidest">
+                                    <span class="option-title">Cheekbones</span>
+                                    <span class="option-description">My cheekbones are the widest point.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="foreheadWidest" name="cheekbones" value="forehead">
+                                <label for="foreheadWidest">
+                                    <span class="option-title">Forehead</span>
+                                    <span class="option-description">My forehead is the widest point.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="jawWidest" name="cheekbones" value="jawline">
+                                <label for="jawWidest">
+                                    <span class="option-title">Jawline</span>
+                                    <span class="option-description">My jawline is the widest point.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="faceEvenWidth" name="cheekbones" value="balanced">
+                                <label for="faceEvenWidth">
+                                    <span class="option-title">Relatively Even</span>
+                                     <span class="option-description">My forehead, cheekbones, and jaw seem similar in width.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="question-nav">
+                        <button type="button" id="facePrevBtn" class="button button-secondary prev-btn hidden">Previous</button>
+                        <button type="button" id="faceNextBtn" class="button next-btn">Next</button>
+                        <button type="button" id="viewFaceResultsBtn" class="button hidden">View Results</button>
+                    </div>
+                </form>
+                 <!-- Result Area -->
+                 <div id="faceAnalysisResultArea" class="hidden" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--secondary-accent);">
+                    <h3>Your Face Shape Result:</h3>
+                    <p id="faceShapeDisplay"></p>
+                    <p id="faceShapeDescription"></p>
+                    <button type="button" id="faceAnalysisDoneBtn" class="button">Return to Start</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2.75: Color Analysis -->
+        <section id="colorAnalysisSection" class="container hidden"> <!-- Added -->
+            <div class="analysis-form-container">
+                <h2>Color Analysis</h2>
+                 <form id="colorAnalysisForm">
+                     <!-- Progress Bar -->
+                    <div class="question-header">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="colorProgressBar" style="width: 25%;"></div>
+                        </div>
+                        <p class="progress-text">Question <span id="currentColorQuestion">1</span> of 4</p>
+                    </div>
+
+                    <!-- Question 1: Skin Undertone -->
+                    <div id="colorQuestion1" class="question-section active">
+                        <h4 class="question-text">1. Look at the veins on your wrist. Are they primarily blue/purple or green/olive?</h4>
+                         <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="undertoneCool" name="skinUndertone" value="cool" required>
+                                <label for="undertoneCool">
+                                    <span class="option-title">Blue / Purple (Cool)</span>
+                                    <span class="option-description">Indicates cool undertones (pink, red, bluish).</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="undertoneWarm" name="skinUndertone" value="warm">
+                                <label for="undertoneWarm">
+                                    <span class="option-title">Green / Olive (Warm)</span>
+                                    <span class="option-description">Indicates warm undertones (yellow, golden, peachy).</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="undertoneNeutral" name="skinUndertone" value="neutral">
+                                <label for="undertoneNeutral">
+                                    <span class="option-title">A Mix / Hard to Tell (Neutral)</span>
+                                    <span class="option-description">Indicates neutral undertones (a balance of warm and cool).</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Question 2: Natural Hair Color -->
+                     <div id="colorQuestion2" class="question-section">
+                        <h4 class="question-text">2. What was your natural hair color as a child/young adult?</h4>
+                          <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="hairCool" name="hairColor" value="ash" required>
+                                <label for="hairCool">
+                                    <span class="option-title">Ashy Tones (Cool)</span>
+                                    <span class="option-description">Ash blonde, ash brown, cool black (no red/gold hints).</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="hairWarm" name="hairColor" value="golden">
+                                <label for="hairWarm">
+                                    <span class="option-title">Golden/Red Tones (Warm)</span>
+                                    <span class="option-description">Golden blonde, warm brown, auburn, red, warm black (red/gold hints).</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="hairNeutral" name="hairColor" value="neutral">
+                                <label for="hairNeutral">
+                                    <span class="option-title">Neutral / Mixed Tones</span>
+                                    <span class="option-description">Mousey brown, neutral black, hair with both warm/cool hints.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Eye Color -->
+                     <div id="colorQuestion3" class="question-section">
+                        <h4 class="question-text">3. What is your dominant eye color?</h4>
+                         <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="eyeCool" name="eyeColor" value="blue_gray" required>
+                                <label for="eyeCool">
+                                    <span class="option-title">Cool Tones (Blue, Gray, Cool Brown)</span>
+                                    <span class="option-description">Eyes are distinctly blue, gray, cool/dark brown (no gold flecks).</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="eyeWarm" name="eyeColor" value="green_hazel_warmbrown">
+                                <label for="eyeWarm">
+                                    <span class="option-title">Warm Tones (Green, Hazel, Warm Brown)</span>
+                                    <span class="option-description">Eyes are green, hazel, golden brown, or brown with warm/gold flecks.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Best Colors -->
+                    <div id="colorQuestion4" class="question-section">
+                        <h4 class="question-text">4. Which color group generally looks best on you (makes your skin glow)?</h4>
+                          <div class="options-group mcq-options">
+                             <div class="mcq-option">
+                                <input type="radio" id="colorPrefCoolBright" name="colorPreference" value="cool_bright" required>
+                                <label for="colorPrefCoolBright">
+                                    <span class="option-title">Cool & Bright</span>
+                                    <span class="option-description">Jewel tones like emerald, sapphire, ruby red, fuchsia, pure white, black.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="colorPrefWarmRich" name="colorPreference" value="warm_rich">
+                                <label for="colorPrefWarmRich">
+                                    <span class="option-title">Warm & Rich / Earthy</span>
+                                    <span class="option-description">Olive green, mustard yellow, terracotta, camel, cream, deep browns.</span>
+                                </label>
+                            </div>
+                             <div class="mcq-option">
+                                <input type="radio" id="colorPrefCoolSoft" name="colorPreference" value="cool_soft">
+                                <label for="colorPrefCoolSoft">
+                                    <span class="option-title">Cool & Soft / Muted</span>
+                                    <span class="option-description">Dusty rose, soft blue, lavender, gray, burgundy, taupe.</span>
+                                </label>
+                            </div>
+                            <div class="mcq-option">
+                                <input type="radio" id="colorPrefWarmLight" name="colorPreference" value="warm_light">
+                                <label for="colorPrefWarmLight">
+                                    <span class="option-title">Warm & Light / Bright</span>
+                                    <span class="option-description">Peach, coral, light moss green, golden yellow, ivory, light warm grays.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                     <div class="question-nav">
+                        <button type="button" id="colorPrevBtn" class="button button-secondary prev-btn hidden">Previous</button>
+                        <button type="button" id="colorNextBtn" class="button next-btn">Next</button>
+                        <button type="button" id="viewColorResultsBtn" class="button hidden">View Results</button>
+                    </div>
+                 </form>
+                 <!-- Result Area -->
+                  <div id="colorAnalysisResultArea" class="hidden" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--secondary-accent);">
+                    <h3>Your Color Season Result:</h3>
+                    <p id="colorSeasonDisplay"></p>
+                    <p id="colorSeasonDescription"></p>
+                    <!-- Add palette display later -->
+                    <button type="button" id="colorAnalysisDoneBtn" class="button">Return to Start</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Trend Analysis / Style Recommendations -->
+        <section id="trendAnalysisSection" class="container hidden">
+            <div class="analysis-form-container">
+                <h2>Your Personalized Style Suggestions</h2>
+                <p>Based on your complete analysis, we've prepared these fashion recommendations just for you.</p>
+                
+                <!-- Clothing Type Filter Dropdown -->
+                <div class="category-filter">
+                    <label for="clothingTypeSelect">Filter by Clothing Type:</label>
+                    <div class="category-dropdown">
+                        <select id="clothingTypeSelect" class="category-select">
+                            <option value="all">All Categories</option>
+                            <option value="tops">Tops</option>
+                            <option value="dresses">Dresses</option>
+                            <option value="bottoms">Bottoms</option>
+                            <option value="outerwear">Outerwear</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Results container for trend suggestions -->
+                <div id="trendResults" class="trend-results-container">
+                    <!-- This will be populated dynamically with JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Upcycler -->
+        <section id="upcyclerSection" class="container hidden"> <!-- Hidden by default -->
+             <h2>Upcycler Ideas</h2>
+             <p>Enter a clothing item you'd like to repurpose.</p>
+             <form id="upcyclerForm" class="analysis-form-container" style="max-width: 600px;">
+                 <div style="margin-bottom: 1.5rem;">
+                    <label for="upcyclerInput" class="label">Clothing Item:</label>
+                    <input type="text" id="upcyclerInput" class="input-field" placeholder="e.g., old jeans, t-shirt, sweater" required>
+                 </div>
+                 <button type="submit" id="submitUpcyclerBtn" class="button">Get Upcycling Ideas</button>
+             </form>
+
+            <!-- Loading Indicator -->
+            <div id="upcyclerLoader" class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Generating ideas...</p>
+            </div>
+
+            <!-- Error Message Area -->
+            <div id="upcyclerError" class="error-message hidden"></div>
+
+             <!-- Results Area -->
+            <div id="upcyclerResults"></div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                 <button type="button" id="upcyclerReturnBtn" class="button button-secondary">Return to Start</button>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 AVA Style Assistant. All rights reserved.</p>
+    </footer>
+
+    <!-- Link JavaScript -->
+    <script src="public/js/questionnaire.js"></script>
+    <!-- Optional: Add app.js or other specific scripts if needed -->
+    <!-- <script src="public/js/app.js"></script> -->
+
+</body>

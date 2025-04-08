@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcycler Agent Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #result {
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upcycler Agent Tester</h1>
+    
+    <div class="container">
+        <h2>Test Upcycling Ideas</h2>
+        <p>Enter a clothing item you want to upcycle:</p>
+        <input type="text" id="clothingItem" placeholder="e.g., old jeans, t-shirt, sweater" value="old jeans">
+        <button onclick="getUpcyclingIdeas()">Get Upcycling Ideas</button>
+    </div>
+    
+    <div class="container">
+        <h2>Results:</h2>
+        <div id="result">Results will appear here...</div>
+    </div>
+
+    <script>
+        async function getUpcyclingIdeas() {
+            const clothingItem = document.getElementById('clothingItem').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.textContent = "Fetching ideas...";
+            
+            try {
+                const response = await fetch('http://localhost:5000/upcycle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text: `I have an ${clothingItem}`
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.ideas && data.ideas.length > 0) {
+                    resultDiv.textContent = data.ideas[0];
+                } else {
+                    resultDiv.textContent = "No ideas found.";
+                }
+            } catch (error) {
+                resultDiv.textContent = `Error: ${error.message}\n\nMake sure the upcycler agent is running on port 5000.\nCheck console for more details.`;
+                console.error('Error fetching upcycling ideas:', error);
+            }
+        }
+    </script>
+</body>
+</html> 
