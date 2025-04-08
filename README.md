@@ -181,7 +181,7 @@ This will launch:
 
 ---
 
-## 🤪 Innovation Lab Badge Eligibility
+## Innovation Lab Badge Eligibility
 
 AVA qualifies for the **Innovation Lab badge** by:
 - Demonstrating real-world application in sustainable fashion
@@ -192,11 +192,11 @@ AVA qualifies for the **Innovation Lab badge** by:
 
 ## 🔮 Future Improvements
 
-- 🗣️ Add multilingual and voice-based chatbot interface
-- 🛙 Integration with fashion retailers and e-commerce APIs
-- 🧠 Upgrade Gemini logic with emotional context handling
-- ♻️ Gamified rewards for upcycling behavior
-- 📱 Native mobile app with AR try-ons
+- Add multilingual and voice-based chatbot interface
+- Integration with fashion retailers and e-commerce APIs
+- Upgrade Gemini logic with emotional context handling
+- Gamified rewards for upcycling behavior
+- Native mobile app with AR try-ons
 
 ---
 
