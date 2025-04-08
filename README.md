@@ -1,12 +1,12 @@
 
 
-# AVA Style Assistant 👗
+# AVA Style Assistant 
 
 **AVA (Agent-based Virtual Assistant)** is an innovative AI-powered personal stylist designed for the **Global AI Agents League Hackathon**. By leveraging the [Fetch.ai](https://fetch.ai/) `uAgents` framework and integrating with [Agentverse](https://agentverse.ai/), AVA delivers personalized fashion advice and promotes sustainable upcycling practices.
 
 ---
 
-## 🌟 Features
+##  Features
 
 - **Personalized Assistant Agent**: Dynamically connects with relevant agents via Agentverse to fulfill user queries efficiently.
 - **Body Analysis Agent**: Determines body shape, face shape, and color palette through user interactions.
@@ -15,7 +15,7 @@
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 The system comprises multiple specialized AI agents:
 
@@ -28,7 +28,7 @@ These agents are developed using the `uAgents` framework and registered on Agent
 
 ---
 
-## 🛠️ Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -63,7 +63,7 @@ These agents are developed using the `uAgents` framework and registered on Agent
 
 ---
 
-## 🚀 Running the Application
+##  Running the Application
 
 Start the system using the bureau:
 
@@ -79,7 +79,7 @@ This will initiate:
 
 ---
 
-## 🔗 Integration with Agentverse
+##  Integration with Agentverse
 
 To comply with the hackathon's requirements:
 
@@ -91,7 +91,7 @@ To comply with the hackathon's requirements:
 
 ---
 
-## 🙌 Acknowledgements
+## Acknowledgements
 
 - **Fetch.ai**: For providing the `uAgents` framework and hosting the hackathon.
 - **Agentverse**: For enabling seamless agent registration and discovery.
