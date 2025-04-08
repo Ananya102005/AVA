@@ -1,6 +1,6 @@
----
 
-## AVA Style Assistant 👗🤖
+
+# AVA Style Assistant 👗
 
 **AVA (Agent-based Virtual Assistant)** is an innovative AI-powered personal stylist designed for the **Global AI Agents League Hackathon**. By leveraging the [Fetch.ai](https://fetch.ai/) `uAgents` framework and integrating with [Agentverse](https://agentverse.ai/), AVA delivers personalized fashion advice and promotes sustainable upcycling practices.
 
