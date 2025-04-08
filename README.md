@@ -15,6 +15,7 @@
 - [Technology Stack](#technology-stack)
 - [Core Features](#core-features)
 - [System Flow](#system-flow)
+- [Demo Video](#demo-video)
 - [Agent Details](#agent-details)
 - [Agentverse Integration](#agentverse-integration)
 - [Innovation Lab Badge Eligibility](#innovation-lab-badge-eligibility)
@@ -92,23 +93,33 @@ These agents communicate using Fetch.ai's `uAgents` protocol to deliver real-tim
 
 
 ---
+## Demo Video
+[![youtube](https://youtu.be/SuR47Xnuakw?si=lUmvxelZvcVPlEtQ)]
 
 ## 🤖 Agent Details
 
 ### 1. Body Analyzer Agent
+[![Address](fetch14v5ms5grtuj2vjw7u5e6xtxmnflm26jyvrg4m5)]
 - Takes input via questionnaire.
 - Determines body type, color palette (season), and face shape.
 
-### 2. Stylist Agent
+### 2. Recommendation Agent
+[![Address](fetch10j2223llf429q9ag6pe8v33s8cxe5j750y08ww)]
 - Fetches real-time trends.
 - Gives complete outfit recommendations using user’s wardrobe images or inputs.
 
 ### 3. Upcycler Agent
+[![Address](fetch16752l74d6kgchcrhq6sgze3yg2wgw52qyq8364)]
 - User provides an item they want to upcycle.
 - Suggests ideas and step-by-step implementation.
 
-### 4. Chatbot Agent
-- Acts as a natural language interface to route queries to the appropriate agent.
+### 4.Bureau Agent
+[![Address](fetch198dxut2v3prhe8ut5etc5wq76cxjkxsetx3vgn)]
+Handles all the message passing between the agents.
+### 5.Assistant Agent
+[![Address](fetch1fhxncaeruqh6eyquukmhjunu59cc03jkzge2xy)]
+
+It links the body analysis agent and recommendation agent.
 
 ---
 
