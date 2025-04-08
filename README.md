@@ -14,7 +14,7 @@
 - [Solution Overview](#solution-overview)
 - [Technology Stack](#technology-stack)
 - [Core Features](#core-features)
-- [System Architecture](#system-architecture)
+- [System Flow](#system-flow)
 - [Agent Details](#agent-details)
 - [Agentverse Integration](#agentverse-integration)
 - [Innovation Lab Badge Eligibility](#innovation-lab-badge-eligibility)
@@ -71,10 +71,9 @@ These agents communicate using Fetch.ai's `uAgents` protocol to deliver real-tim
 | **Agents**        | Fetch.ai uAgents                      |
 | **AI/ML**         | Gemini AI (Google Generative AI SDK) |
 | **Backend**       | Python, FastAPI                       |
-| **Frontend**      | HTML, CSS (basic for now)             |
+| **Frontend**      | HTML, CSS                             |
 | **Database**      | In-memory |
-| **Hosting**       | Localhost / GCP-ready                 |
-| **Auth**          | JWT / OAuth (optional integration)    |
+
 
 ---
 
@@ -155,7 +154,7 @@ You may add `test_*.py` files to expand your test coverage further.
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-username/ava-style-assistant.git
+git clone https://github.com/Ananya102005/ava-style-assistant.git
 cd ava-style-assistant
 ```
 
