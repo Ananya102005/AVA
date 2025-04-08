@@ -1,102 +1,214 @@
+# AVA: Agent-based Virtual Stylist + Upcycler
 
+![Innovation Lab Badge](https://fetch.ai/images/innovation-lab-badge.svg)
 
-# AVA Style Assistant 
-
-**AVA (Agent-based Virtual Assistant)** is an innovative AI-powered personal stylist designed for the **Global AI Agents League Hackathon**. By leveraging the [Fetch.ai](https://fetch.ai/) `uAgents` framework and integrating with [Agentverse](https://agentverse.ai/), AVA delivers personalized fashion advice and promotes sustainable upcycling practices.
-
----
-
-##  Features
-
-- **Personalized Assistant Agent**: Dynamically connects with relevant agents via Agentverse to fulfill user queries efficiently.
-- **Body Analysis Agent**: Determines body shape, face shape, and color palette through user interactions.
-- **Trend Analyzer & Stylist Agent**: Provides outfit recommendations by analyzing user preferences and current fashion trends.
-- **Upcycler Agent**: Suggests creative upcycling ideas to promote sustainable fashion choices.
+### Personal Styling and Sustainable Fashion Powered by Fetch.ai uAgents
 
 ---
 
-## Architecture Overview
-
-The system comprises multiple specialized AI agents:
-
-1. **Assistant Agent**: Coordinates user interactions and delegates tasks to other agents.
-2. **Body Analysis Agent**: Assesses body type, face shape, and color season.
-3. **Recommendation Agent**: Generates personalized style advice.
-4. **Upcycler Agent**: Offers innovative upcycling suggestions.
-
-These agents are developed using the `uAgents` framework and registered on Agentverse, enabling seamless interaction within the agent ecosystem.
+## Table of Contents
+- [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
+- [Objective](#objective)
+- [Solution Overview](#solution-overview)
+- [Technology Stack](#technology-stack)
+- [Core Features](#core-features)
+- [System Architecture](#system-architecture)
+- [Agent Details](#agent-details)
+- [Agentverse Integration](#agentverse-integration)
+- [Innovation Lab Badge Eligibility](#innovation-lab-badge-eligibility)
+- [Testing Instructions](#testing-instructions)
+- [Running the Application](#running-the-application)
+- [Future Improvements](#future-improvements)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 ---
 
-##  Getting Started
+## 🧠 Introduction
 
-### Prerequisites
+**AVA (Agent-based Virtual Assistant)** is a decentralized, modular personal stylist and upcycling guide built using Fetch.ai's **uAgents framework**. AVA is a multi-agent system that helps users:
+- Analyze their body type, face shape, and color palette
+- Get fashion advice based on current trends
+- Suggest personalized outfit recommendations
+- Offer upcycling ideas for old clothing to promote sustainability
 
-- Python 3.8 or higher
-- [uAgents](https://pypi.org/project/uagents/) library
-- Access to [Agentverse](https://agentverse.ai/)
-- Google Generative AI SDK (for advanced recommendations)
-- `.env` file with your **Google API Key**
+---
 
-### Installation
+## ❓ Problem Statement
 
-1. **Clone the Repository**:
+Finding personalized fashion advice and keeping up with daily trends is overwhelming. Moreover, most people discard old clothes instead of creatively reusing them, contributing to fashion waste.
 
-   ```bash
-   git clone https://github.com/your-username/ava-style-assistant.git
-   cd ava-style-assistant
+---
+
+## 🎯 Objective
+
+To build an intelligent and autonomous style advisor using the Fetch.ai ecosystem, combining:
+- AI-driven personalization
+- Global fashion trends
+- Circular fashion through upcycling
+- Privacy-respecting architecture via uAgents
+
+---
+
+## 🤩 Solution Overview
+
+AVA uses four specialized autonomous agents managed by a Bureau:
+1. **Body Analyzer Agent**
+2. **Stylist Agent**
+3. **Upcycler Agent**
+4. **Chatbot Agent**
+
+These agents communicate using Fetch.ai's `uAgents` protocol to deliver real-time and personalized fashion experiences.
+
+---
+
+## 🛠 Technology Stack
+
+| Layer             | Tools/Frameworks                      |
+|------------------|----------------------------------------|
+| **Agents**        | Fetch.ai uAgents                      |
+| **AI/ML**         | Gemini AI (Google Generative AI SDK) |
+| **Backend**       | Python, FastAPI                       |
+| **Frontend**      | HTML, CSS (basic for now)             |
+| **Database**      | In-memory |
+| **Hosting**       | Localhost / GCP-ready                 |
+| **Auth**          | JWT / OAuth (optional integration)    |
+
+---
+
+## ✨ Core Features
+
+- **Body Analyzer**: Determines user’s body type, face shape, and color palette using standard questionnaires.
+- **Trend-Based Stylist**: Offers curated outfit suggestions using global trend insights.
+- **Upcycler Agent**: Suggests creative upcycling ideas based on user’s clothing inputs.
+- **Chatbot Interface**: Seamlessly connects users with the appropriate agent through natural queries.
+
+---
+
+## 🧬 System Architecture
+
+'''
+![ChatGPT_Image_Apr_8,_2025,_10_13_52_PM 1](https://github.com/user-attachments/assets/cc907bce-75cb-4c6d-8c93-2a8dda3d6119)
+
+
+---
+
+## 🤖 Agent Details
+
+### 1. Body Analyzer Agent
+- Takes input via questionnaire.
+- Determines body type, color palette (season), and face shape.
+
+### 2. Stylist Agent
+- Fetches real-time trends.
+- Gives complete outfit recommendations using user’s wardrobe images or inputs.
+
+### 3. Upcycler Agent
+- User provides an item they want to upcycle.
+- Suggests ideas and step-by-step implementation.
+
+### 4. Chatbot Agent
+- Acts as a natural language interface to route queries to the appropriate agent.
+
+---
+
+## 💫 Agentverse Integration
+
+The current system is compatible with Fetch.ai’s **Agentverse**, enabling:
+- Public publishing of each agent
+- Inter-agent coordination across user networks
+- Scaling the ecosystem with plug-and-play fashion agents
+
+To integrate with Agentverse:
+- Register each agent on Agentverse
+- Add wallet and identity management
+- Use Discovery Service for matchmaking between fashion advisors and users
+
+---
+
+## Testing Instructions
+
+1. **Install Dependencies**
    ```
-
-2. **Install Dependencies**:
-
-   ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set Up Environment Variables**:
-
-   Create a `.env` file in the project root:
-
-   ```env
-   GOOGLE_API_KEY=your_google_api_key_here
+2. **Run Tests**
    ```
+   pytest
+   ```
+
+3. **Tested Components**
+   - Agent-to-agent communication
+   - API endpoints for analysis and recommendation
+   - Body shape classifier logic
+   - Upcycling suggestion logic
+   - Gemini AI integration (mocked/test key)
+
+You may add `test_*.py` files to expand your test coverage further.
 
 ---
 
-##  Running the Application
+## 🚀 Running the Application
 
-Start the system using the bureau:
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/your-username/ava-style-assistant.git
+cd ava-style-assistant
+```
 
+### Step 2: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3: Setup Environment
+Create a `.env` file:
+```
+GOOGLE_API_KEY=your_google_api_key_here
+```
+
+### Step 4: Run Bureau
 ```bash
 python bureau.py
 ```
 
-This will initiate:
-
-- **Bureau Server**: Runs on `http://localhost:8000`
-- **Web Frontend**: Accessible at `http://localhost:8080`
-- **Agents**: Assistant, Body Analysis, Recommendation, and Upcycler Agents
-
----
-
-##  Integration with Agentverse
-
-To comply with the hackathon's requirements:
-
-1. **Register Agents on Agentverse**: Ensure all agents are registered on [Agentverse](https://agentverse.ai/), facilitating discovery and interaction with other agents.
-
-2. **Utilize Search and Discovery**: The Assistant Agent employs Agentverse's Search and Discovery feature to dynamically connect with the most relevant agents, whether created by your team or other participants, to fulfill user queries and coordinate tasks efficiently.
-
-
+This will launch:
+- All agents via Fetch’s uAgents framework
+- FastAPI backend on `http://localhost:8000`
+- Web UI on `http://localhost:8080`
 
 ---
 
-## Acknowledgements
+## 🤪 Innovation Lab Badge Eligibility
 
-- **Fetch.ai**: For providing the `uAgents` framework and hosting the hackathon.
-- **Agentverse**: For enabling seamless agent registration and discovery.
-- **Google Generative AI**: For powering advanced style recommendations.
-- **Open-Source Community**: For continuous support and inspiration.
+AVA qualifies for the **Innovation Lab badge** by:
+- Demonstrating real-world application in sustainable fashion
+- Using autonomous multi-agent systems
+- Promoting decentralized ecosystems (via Agentverse support)
 
 ---
+
+## 🔮 Future Improvements
+
+- 🗣️ Add multilingual and voice-based chatbot interface
+- 🛙 Integration with fashion retailers and e-commerce APIs
+- 🧠 Upgrade Gemini logic with emotional context handling
+- ♻️ Gamified rewards for upcycling behavior
+- 📱 Native mobile app with AR try-ons
+
+---
+
+## 📜 License
+
+MIT License - see `LICENSE` file for details.
+
+---
+
+## 🙌 Acknowledgements
+
+- [Fetch.ai](https://fetch.ai/) for the uAgents framework
+- [Google Generative AI](https://ai.google/discover/gemini/) for powerful NLP
+- Fashion and sustainability communities for inspiration
 
