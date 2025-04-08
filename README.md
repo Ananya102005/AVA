@@ -87,7 +87,7 @@ These agents communicate using Fetch.ai's `uAgents` protocol to deliver real-tim
 
 ---
 
-## 🧬 System Architecture
+## 🧬 System Flow
 
 '''
 ![ChatGPT_Image_Apr_8,_2025,_10_13_52_PM 1](https://github.com/user-attachments/assets/cc907bce-75cb-4c6d-8c93-2a8dda3d6119)
